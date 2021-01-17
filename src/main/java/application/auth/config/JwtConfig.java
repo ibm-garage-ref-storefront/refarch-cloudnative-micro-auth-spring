@@ -6,17 +6,17 @@ import org.springframework.stereotype.Component;
 
 @Component
 @EnableConfigurationProperties
-@ConfigurationProperties(prefix = "jwt")
-public class JwtConfiguration {
-
-    private String sharedSecret;
-
-    public String getSharedSecret() {
-        return sharedSecret;
-    }
-
-    public void setSharedSecret(String sharedSecret) {
-        this.sharedSecret = sharedSecret;
-    }
+@ConfigurationProperties(prefix="jwt")
+public class JwtConfig {
+	
+private String sharedSecret;
+	
+	public String getSharedSecret() {
+		return sharedSecret;
+	}
+	
+	public void setSharedSecret(String sharedSecret) {
+		this.sharedSecret = sharedSecret;
+	}
 
 }
