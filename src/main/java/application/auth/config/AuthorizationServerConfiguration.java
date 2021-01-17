@@ -40,7 +40,7 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
     @Qualifier("authenticationManagerBean")
     private AuthenticationManager authenticationManager;
     @Autowired
-    private JwtConfiguration securityConfig;
+    private JwtConfig securityConfig;
 
     @Bean
     public JwtAccessTokenConverter jwtTokenEnhancer() {
@@ -72,14 +72,14 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
                 .authorizedGrantTypes(
                         "refresh_token",
                         "password")
-                .scopes("blue", "admin").and()
+                .scopes("openid", "admin").and()
                 // mobile bff -- implicit grant type
                 .withClient("bluecomputemobile")
                 .secret(passwordEncoder.encode("bluecomputemobiles3cret"))
                 .authorizedGrantTypes(
                         "implicit",
                         "refresh_token")
-                .scopes("blue");
+                .scopes("openid");
     }
 
     @Override
