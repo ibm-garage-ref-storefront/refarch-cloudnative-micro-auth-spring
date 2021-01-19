@@ -39,8 +39,6 @@ public class CustomerAuthenticationProvider implements AuthenticationProvider {
 
         // call customer service
         
-        System.out.println("test "+custSvc.getCustomerByUsername(name));
-        
     	final List<Cust> custList = custSvc.getCustomerByUsername(name);
     	
     	logger.debug("customer service returned:" + custList);
@@ -61,7 +59,7 @@ public class CustomerAuthenticationProvider implements AuthenticationProvider {
     	}
     	
     	// authentication was valid
-		return new UsernamePasswordAuthenticationToken(cust.getCustomerId(), password, Arrays.asList(new SimpleGrantedAuthority("ROLE_USER")));
+		return new UsernamePasswordAuthenticationToken(cust.getUsername(), password, Arrays.asList(new SimpleGrantedAuthority("ROLE_USER")));
     }
 
     @Override
